@@ -79,6 +79,19 @@ export default class PileManager {
       cardCount--;
     }
 
+    cardCount = toPile.cards.length;
+    const newToPile = [];
+
+    while (cardCount > 0) {
+      let randomInt = this.getRandomInt(cardCount);
+      newToPile.push(toPile.cards[randomInt]);
+      toPile.cards.splice(randomInt, 1);
+      cardCount--;
+    }
+
+    toPile.cards = newToPile;
+
+    console.log(toPile);
     toPile.save();
     fromPile.save();
 
