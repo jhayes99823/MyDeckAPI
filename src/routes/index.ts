@@ -2,6 +2,8 @@ import express from "express";
 const router = express.Router();
 
 import sessionRoutes from "./session";
+import pileRoutes from "./pile";
+import playerRoutes from "./player";
 
 router.get("/", (req, res) => {
   res.json({
@@ -14,5 +16,7 @@ router.get("/", (req, res) => {
 });
 
 router.use("/session", sessionRoutes);
+router.use("/pile", pileRoutes);
+router.use("/player", playerRoutes);
 
 export default router;

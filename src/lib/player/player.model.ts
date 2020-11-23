@@ -9,6 +9,7 @@ const PlayerSchema: Schema = new Schema(
   {
     name: String,
     cards: [CardSchema],
+    sessionId: String,
   },
   {
     timestamps: true,

@@ -47,6 +47,8 @@ export default class SessionManager {
         cardDeck.splice(randomInt, 1);
       }
 
+      newPlayer.sessionId = session.id;
+
       newPlayer.save();
 
       session.players.push(newPlayer.id);
@@ -64,6 +66,8 @@ export default class SessionManager {
         }
       }
 
+      newPile.sessionId = session.id;
+
       newPile.save();
 
       session.piles.push(newPile.id);
@@ -80,6 +84,8 @@ export default class SessionManager {
         name: session.name,
         piles: dto.pileNames,
         players: dto.playerNames,
+        pile_ids: session.piles,
+        player_ids: session.players,
       },
     };
   }

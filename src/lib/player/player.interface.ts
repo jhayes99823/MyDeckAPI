@@ -4,4 +4,5 @@ import { ICard } from "../card/card.interface";
 export interface IPlayer extends Document {
   cards: ICard[];
   name: string;
+  sessionId: string;
 }
