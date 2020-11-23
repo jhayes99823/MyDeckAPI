@@ -160,7 +160,6 @@ export default class PlayerManager {
     pile.save();
     player.save();
 
-    // return "im here";
     return {
       success: true,
       message: "Player Card Drawn",

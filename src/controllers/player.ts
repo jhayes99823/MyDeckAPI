@@ -11,9 +11,6 @@ exports.getPlayerBySessionidandName = async (req, res) => {
 
 exports.draw = async (req, res) => {
   const { sessionId, name, pileName, amount } = req.body;
-
-  console.log("req.body ", req.body);
-
   const mgr = PlayerManager.getInstance();
 
   const player = await mgr.draw(name, pileName, sessionId, amount);
@@ -23,7 +20,6 @@ exports.draw = async (req, res) => {
 
 exports.discard = async (req, res) => {
   const { sessionId, name, pileName, cards } = req.body;
-
   const mgr = PlayerManager.getInstance();
 
   const player = await mgr.discard(name, pileName, sessionId, cards);
