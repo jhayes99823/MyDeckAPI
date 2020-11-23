@@ -17,7 +17,7 @@ export default class SessionManager {
   private constructor() {}
 
   async CreateSession(dto: CreateSessionDTO) {
-    const session = new Session();
+    const session = new Session({ name: dto.name });
 
     for (let player in dto.playerNames) {
       const newPlayer = new Player({ name: dto.playerNames[player] });
@@ -41,7 +41,12 @@ export default class SessionManager {
       success: true,
       message: "New Session Created",
       statusCode: 201,
-      data: { id: session.id, piles: dto.pileNames, players: dto.playerNames },
+      data: {
+        id: session.id,
+        name: session.name,
+        piles: dto.pileNames,
+        players: dto.playerNames,
+      },
     };
   }
 }

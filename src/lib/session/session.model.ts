@@ -22,6 +22,7 @@ const SessionSchema: Schema = new Schema(
         },
       ],
     },
+    namae: String,
   },
   {
     timestamps: true,
