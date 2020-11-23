@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use("/api/v1", router);
 
 connectDb().then(async () => {
-  const server = app.listen(5002, () => {
-    console.log(`Listening on port ${5002}`);
+  const server = app.listen(5002 || process.env.PORT, () => {
+    console.log(`Listening on port ${5002 || process.env.PORT}`);
   });
 });
