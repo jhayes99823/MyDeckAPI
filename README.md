@@ -6,4 +6,4 @@
 https://rapidapi.com/jhayes99823/api/mydeckapi2/endpoints
 
 ### Postman Collection Documentation
-https://www.getpostman.com/collections/d359675b7b8b75e313c9
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://god.postman.co/run-collection/d359675b7b8b75e313c9)
