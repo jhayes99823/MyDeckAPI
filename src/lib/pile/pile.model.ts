@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { IPile } from "./pile.interface";
+import CardSchema from "../card/card.model";
 
 export const DOCUMENT_NAME = "Pile";
 export const COLLECTION_NAME = "piles";
@@ -7,14 +8,7 @@ export const COLLECTION_NAME = "piles";
 const PileSchema: Schema = new Schema(
   {
     name: String,
-    cards: {
-      type: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Card",
-        },
-      ],
-    },
+    cards: [CardSchema],
   },
   {
     timestamps: true,

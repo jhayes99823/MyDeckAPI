@@ -8,9 +8,20 @@ export interface ISession extends Document {
   name: string;
 }
 
+export interface NewPlayerDTO {
+  name: string;
+  handCount?: number;
+}
+
+export interface NewPileDTO {
+  name: string;
+  count?: string;
+}
+
 export interface CreateSessionDTO {
-  playerNames: string[];
-  pileNames: string[];
+  playerNames: NewPlayerDTO[];
+  pileNames: NewPileDTO[];
   deckCount: number;
   name: string;
+  playerHandCount: number;
 }
