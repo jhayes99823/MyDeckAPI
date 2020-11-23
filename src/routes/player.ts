@@ -4,5 +4,6 @@ const router = express.Router();
 const player = require("../controllers/player");
 
 router.get("/", player.getPlayerBySessionidandName);
+router.get("/draw", player.drawCard);
 
 export default router;

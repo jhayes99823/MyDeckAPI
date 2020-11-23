@@ -14,7 +14,10 @@ export default class PileManager {
   private constructor() {}
 
   async getPileInfoBySessionIdandName(name: string, sessionId: string) {
-    const pile = await Pile.find({ sessionId: sessionId, name: name }).exec();
+    const pile = await Pile.findOne({
+      sessionId: sessionId,
+      name: name,
+    }).exec();
 
     if (!pile) {
       return {
@@ -29,7 +32,10 @@ export default class PileManager {
       message: "Pile Found",
       statusCode: 200,
       data: {
-        ...pile,
+        id: pile.id,
+        name: pile.name,
+        cards: pile.cards,
+        sessionId: pile.sessionId,
       },
     };
   }

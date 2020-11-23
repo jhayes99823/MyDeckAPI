@@ -8,3 +8,15 @@ exports.getPlayerBySessionidandName = async (req, res) => {
 
   res.json(player);
 };
+
+exports.drawCard = async (req, res) => {
+  const { sessionId, name, pileName } = req.body;
+
+  console.log("req.body ", req.body);
+
+  const mgr = PlayerManager.getInstance();
+
+  const player = await mgr.drawCard(name, pileName, sessionId);
+
+  res.json(player);
+};
