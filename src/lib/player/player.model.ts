@@ -1,5 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import { IPlayer } from "./player.interface";
+import CardSchema from "../card/card.model";
 
 export const DOCUMENT_NAME = "Player";
 export const COLLECTION_NAME = "players";
@@ -7,14 +8,7 @@ export const COLLECTION_NAME = "players";
 const PlayerSchema: Schema = new Schema(
   {
     name: String,
-    cards: {
-      type: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: "Card",
-        },
-      ],
-    },
+    cards: [CardSchema],
   },
   {
     timestamps: true,

@@ -4,8 +4,8 @@ import { ICard } from "./card.interface";
 export const DOCUMENT_NAME = "Card";
 export const COLLECTION_NAME = "cards";
 
-const suits = ["CLUB", "DIAMOND", "HEART", "SPADE"];
-const cardValues = [
+export const suits = ["CLUB", "DIAMOND", "HEART", "SPADE"];
+export const cardValues = [
   "ACE",
   "KING",
   "QUEEN",
@@ -40,8 +40,4 @@ const CardSchema: Schema = new Schema(
   }
 );
 
-export const Card = mongoose.model<ICard>(
-  DOCUMENT_NAME,
-  CardSchema,
-  COLLECTION_NAME
-);
+export default CardSchema;
