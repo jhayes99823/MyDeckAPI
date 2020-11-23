@@ -10,13 +10,13 @@ exports.getPlayerBySessionidandName = async (req, res) => {
 };
 
 exports.drawCard = async (req, res) => {
-  const { sessionId, name, pileName } = req.body;
+  const { sessionId, name, pileName, amount } = req.body;
 
   console.log("req.body ", req.body);
 
   const mgr = PlayerManager.getInstance();
 
-  const player = await mgr.drawCard(name, pileName, sessionId);
+  const player = await mgr.drawCard(name, pileName, sessionId, amount);
 
   res.json(player);
 };

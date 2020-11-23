@@ -41,7 +41,12 @@ export default class PlayerManager {
     };
   }
 
-  async drawCard(name: string, pileName: string, sessionId: string) {
+  async drawCard(
+    name: string,
+    pileName: string,
+    sessionId: string,
+    amount: number
+  ) {
     const player = await Player.findOne({
       sessionId: sessionId,
       name: name,
@@ -68,8 +73,15 @@ export default class PlayerManager {
       };
     }
 
-    const drawnCard = pile.cards.shift();
-    player.cards.push(drawnCard);
+    if (amount == null || amount == undefined) {
+      amount = 1;
+    }
+
+    while (amount > 0) {
+      const drawnCard = pile.cards.shift();
+      player.cards.push(drawnCard);
+      amount--;
+    }
 
     pile.save();
     player.save();
