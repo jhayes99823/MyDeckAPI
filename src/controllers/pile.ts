@@ -7,3 +7,11 @@ exports.getPileBySessionIdandName = async (req, res) => {
 
   res.json(pile);
 };
+
+exports.shufflePileToPile = async (req, res) => {
+  const { sessionId, to, from } = req.body;
+  const mgr = PileManager.getInstance();
+  const pile = await mgr.shufflePileToPile(to, from, sessionId);
+
+  res.json(pile);
+};
