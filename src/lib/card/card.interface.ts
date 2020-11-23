@@ -5,4 +5,5 @@ export interface ICard extends mongoose.Types.Subdocument {
   value: string;
   code: string;
   count: number;
+  imageURL: string;
 }

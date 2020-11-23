@@ -5,6 +5,7 @@ import { Pile } from "../pile/pile.model";
 import { suits, cardValues } from "../card/card.model";
 
 const DECK_COUNT = 52;
+const IMAGE_URL_BASE = "https://deckofcardsapi.com/static/img/";
 
 export default class SessionManager {
   private static _theInstance: SessionManager = null as any;
@@ -104,6 +105,11 @@ export default class SessionManager {
           suit: suits[suit],
           value: cardValues[value],
           code,
+          imageURL:
+            IMAGE_URL_BASE +
+            (code.charAt(1) == "1" ? "0" : code.charAt(1)) +
+            code.charAt(0) +
+            ".png",
         };
         cardArr.push(newCard);
       }

@@ -34,6 +34,7 @@ const CardSchema: Schema = new Schema(
     },
     code: String,
     count: Number,
+    imageURL: String,
   },
   {
     timestamps: true,
