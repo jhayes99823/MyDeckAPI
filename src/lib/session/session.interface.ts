@@ -6,3 +6,9 @@ export interface ISession extends Document {
   players: IPlayer[];
   piles: IPile[];
 }
+
+export interface CreateSessionDTO {
+  playerNames: string[];
+  pileNames: string[];
+  deckCount: number;
+}
