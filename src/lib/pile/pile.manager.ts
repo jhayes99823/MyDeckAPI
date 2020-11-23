@@ -40,7 +40,12 @@ export default class PileManager {
     };
   }
 
-  async shufflePileToPile(to: string, from: string, sessionId: string) {
+  async shufflePileToPile(
+    to: string,
+    from: string,
+    remaining_from: number,
+    sessionId: string
+  ) {
     const toPile = await Pile.findOne({
       sessionId: sessionId,
       name: to,
@@ -67,7 +72,9 @@ export default class PileManager {
       };
     }
 
-    let cardCount = fromPile.cards.length;
+    let remainingCards = remaining_from == null ? 0 : remaining_from;
+
+    let cardCount = fromPile.cards.length - remainingCards;
 
     while (cardCount > 0) {
       let randomInt = this.getRandomInt(cardCount);
