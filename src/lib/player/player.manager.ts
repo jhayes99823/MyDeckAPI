@@ -132,29 +132,21 @@ export default class PlayerManager {
       };
     }
 
-    const foundCards = [];
+    let foundCardIndex = -1;
 
     for (let card in cards) {
       const currCard = cards[card];
-      foundCards.push(
-        player.cards.findIndex((element) => {
-          return (
-            element.code == currCard.code &&
-            element.value == currCard.value &&
-            element.suit == currCard.suit
-          );
-        })
-      );
-    }
+      foundCardIndex = player.cards.findIndex((element) => {
+        return (
+          element.code == currCard.code &&
+          element.value == currCard.value &&
+          element.suit == currCard.suit
+        );
+      });
 
-    console.log("found cars", foundCards);
-
-    while (foundCards.length > 0) {
-      const cardToRemove = player.cards[foundCards[0]];
-      console.log("my card", cardToRemove);
+      const cardToRemove = player.cards[foundCardIndex];
       pile.cards.push(cardToRemove);
-      player.cards.splice(foundCards[0], 1);
-      foundCards.shift();
+      player.cards.splice(foundCardIndex, 1);
     }
 
     pile.save();
@@ -162,7 +154,7 @@ export default class PlayerManager {
 
     return {
       success: true,
-      message: "Player Card Drawn",
+      message: "Player Card(s) Discarded",
       statusCode: 200,
       data: {
         id: player.id,
