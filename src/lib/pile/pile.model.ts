@@ -9,6 +9,7 @@ const PileSchema: Schema = new Schema(
   {
     name: String,
     cards: [CardSchema],
+    sessionId: String,
   },
   {
     timestamps: true,
