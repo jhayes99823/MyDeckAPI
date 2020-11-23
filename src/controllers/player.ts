@@ -1,7 +1,7 @@
 import PlayerManager from "../lib/player/player.manager";
 
 exports.getPlayerBySessionidandName = async (req, res) => {
-  const { sessionId, name } = req.body;
+  const { sessionId, name } = req.query;
   const mgr = PlayerManager.getInstance();
 
   const player = await mgr.getPlayerBySessionidandName(name, sessionId);

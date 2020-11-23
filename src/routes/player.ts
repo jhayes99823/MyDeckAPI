@@ -4,7 +4,7 @@ const router = express.Router();
 const player = require("../controllers/player");
 
 router.get("/", player.getPlayerBySessionidandName);
-router.get("/draw", player.draw);
-router.get("/discard", player.discard);
+router.post("/draw", player.draw);
+router.post("/discard", player.discard);
 
 export default router;
