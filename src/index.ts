@@ -6,7 +6,7 @@ import { connectDb } from "./lib";
 import router from "./routes";
 
 app.use(bodyParser.json());
-app.use("/api", router);
+app.use("/api/v1", router);
 
 connectDb().then(async () => {
   const server = app.listen(5002, () => {
