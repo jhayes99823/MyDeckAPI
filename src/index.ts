@@ -4,7 +4,6 @@ const app = express();
 import { connectDb } from "./lib";
 
 import router from "./routes";
-import SessionManager from "./lib/session/session.manager";
 
 app.use(bodyParser.json());
 app.use("/api", router);
